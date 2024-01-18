@@ -35,21 +35,22 @@
       <div class="container">
         <div class="row justify-content-center">
           <h1 class="h3 mb-3 font-weight-normal">
-            請先登入 {{ text }}
+            請先登入
           </h1>
           <div class="col-8">
+            <span v-show="isFailed" class="fs-4 text-danger">登入失敗！</span>
             <form id="form" class="form-signin">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="username"
+                <input v-model="email" type="email" class="form-control" id="username"
                   placeholder="name@example.com" required autofocus>
                 <label for="username">Email address</label>
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="password"
+                <input v-model="password" type="password" class="form-control" id="password"
                   placeholder="Password" required>
                 <label for="password">Password</label>
               </div>
-              <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">
+              <button @click.prevent="login" class="btn btn-lg btn-primary w-100 mt-3" type="submit">
                 登入
               </button>
             </form>
@@ -70,6 +71,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
       integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
       crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="login.js" type="module"></script>
   </body>
 
